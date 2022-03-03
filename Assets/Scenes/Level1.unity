@@ -7219,7 +7219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06910ac92b709c4fb40f509b8121fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enterEvent:
+  interactEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1640515198}
@@ -7234,6 +7234,14 @@ MonoBehaviour:
           m_StringArgument: Level2
           m_BoolArgument: 0
         m_CallState: 2
+  enterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  leaveEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  fireEnter: 1
+  fireLeave: 1
 --- !u!114 &1640515198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7255,7 +7263,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2205894705237498486, guid: 960ae4a900c877d4bbb06fdaa4e7d79a, type: 3}
       propertyPath: m_Name
-      value: Main Camera
+      value: Camera
       objectReference: {fileID: 0}
     - target: {fileID: 2205894705237498506, guid: 960ae4a900c877d4bbb06fdaa4e7d79a, type: 3}
       propertyPath: m_RootOrder

@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     Animator animator;
     SpriteRenderer render;
     public float speed = 5f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
