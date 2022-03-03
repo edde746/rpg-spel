@@ -41,7 +41,10 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: AboveGround
+  - name: Structures
+    uniqueID: 3101249535
+    locked: 0
+  - name: Decoration
     uniqueID: 168435023
     locked: 0
   - name: Player

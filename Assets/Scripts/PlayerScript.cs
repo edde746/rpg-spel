@@ -6,13 +6,13 @@ public class PlayerScript : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator animator;
-    SpriteRenderer renderer;
+    SpriteRenderer render;
     public float speed = 5f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        renderer = GetComponent<SpriteRenderer>();
+        render = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -25,7 +25,7 @@ public class PlayerScript : MonoBehaviour
             and flip the renderer instead
         */
         animator.SetFloat("Horizontal", Mathf.Abs(rb.velocity.x));
-        renderer.flipX = rb.velocity.x < 0;
+        render.flipX = rb.velocity.x < 0;
         animator.SetFloat("Vertical", rb.velocity.y);
     }
 }
