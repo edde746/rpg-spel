@@ -26,7 +26,13 @@ public class PlayerScript : MonoBehaviour
             and flip the renderer instead
         */
         animator.SetFloat("Horizontal", Mathf.Abs(rb.velocity.x));
-        render.flipX = rb.velocity.x < 0;
         animator.SetFloat("Vertical", rb.velocity.y);
+
+        // Used to manage idle
+        animator.SetBool("Walking", rb.velocity.magnitude > 0f);
+        if (Mathf.Abs(rb.velocity.y) > 0f)
+            animator.SetBool("DirectionUpwards", rb.velocity.y > 0f);
+        if (Mathf.Abs(rb.velocity.x) > 0f)
+            render.flipX = rb.velocity.x < 0;
     }
 }
