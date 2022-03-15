@@ -1,15 +1,23 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 
+[Serializable]
+public class Dialog
+{
+    public string[] messages;
+    public UnityEvent finished;
+}
+
 public class DialogScript : MonoBehaviour
 {
     public GameObject dialogBox;
     TextMeshProUGUI dialogText;
-    public UnityEvent finishedSpeaking;
-    public string[] dialog;
+    public Dialog[] dialog;
     public float textSpeed = 0.02f;
+    int activeDialog = 0;
     int activeMessage = 0;
     bool speaking = false;
 
@@ -20,10 +28,19 @@ public class DialogScript : MonoBehaviour
 
     void Update()
     {
-        if (!speaking && dialogBox.activeSelf && activeMessage < dialog.Length - 1 && Input.GetKeyDown(KeyCode.E))
+        if (!speaking && dialogBox.activeSelf && activeMessage < dialog[activeDialog].messages.Length - 1 && Input.GetKeyDown(KeyCode.E))
         {
             activeMessage++;
             StartCoroutine(DialogRoutine());
+        }
+    }
+
+    public void SetActiveDialog(int id)
+    {
+        if (id >= 0 && id <= dialog.Length - 1)
+        {
+            activeMessage = 0;
+            activeDialog = id;
         }
     }
 
@@ -53,17 +70,17 @@ public class DialogScript : MonoBehaviour
         dialogText.text = "";
 
         // Animate text
-        foreach (var letter in dialog[activeMessage])
+        foreach (var letter in dialog[activeDialog].messages[activeMessage])
         {
             dialogText.text += letter;
             yield return new WaitForSeconds(textSpeed);
         }
 
         // If we are finished speaking, wait 1 second and fire speaking finished event
-        if (activeMessage == dialog.Length - 1)
+        if (activeMessage == dialog[activeDialog].messages.Length)
         {
             yield return new WaitForSeconds(1f);
-            finishedSpeaking.Invoke();
+            dialog[activeDialog].finished.Invoke();
         }
 
         // Unlock speaking

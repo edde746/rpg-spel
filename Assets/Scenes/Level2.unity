@@ -69376,6 +69376,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1532228933}
+        m_TargetAssemblyTypeName: DialogScript, Assembly-CSharp
+        m_MethodName: SetActiveDialog
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   enterEvent:
     m_PersistentCalls:
       m_Calls:
@@ -69565,25 +69577,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 480293962}
-  finishedSpeaking:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 921798678}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_flipX
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   dialog:
-  - Hello, I am an NPC
-  - This is the dialog system
-  - Go inside the house to proceed
+  - messages:
+    - Hello, I am an NPC
+    - This is the dialog system
+    - Enter the house to proceed
+    finished:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 921798678}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_flipX
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - messages:
+    - Good job entering the house
+    - That's it
+    finished:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 921798678}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_flipX
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   textSpeed: 0.02
 --- !u!1 &1588597378
 GameObject:
